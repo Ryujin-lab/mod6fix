@@ -66,6 +66,11 @@ public class NewFrame extends javax.swing.JFrame {
         });
 
         view.setText("view");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,6 +129,9 @@ public class NewFrame extends javax.swing.JFrame {
             int stock = Integer.parseInt(fruitStock.getText());
             Fruit newFruit = new Fruit(name, stock);
             Data.fruit.add(newFruit);
+            
+            fruitName.setText("");
+            fruitStock.setText("");
         }
         else{
             JOptionPane.showMessageDialog(null, "pastikan field terisi", "field tidak terisi", JOptionPane.ERROR_MESSAGE);
@@ -131,12 +139,19 @@ public class NewFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        // TODO add your handling code here:
+        Data.fruit.clear();
+        fruitName.setText("");
+        fruitStock.setText("");
     }//GEN-LAST:event_resetActionPerformed
 
     private void fruitNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruitNameActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_fruitNameActionPerformed
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        System.out.println("jurnalmodul6.NewFrame.viewActionPerformed()");
+        new ListBuah().setVisible(true);
+    }//GEN-LAST:event_viewActionPerformed
 
     /**
      * @param args the command line arguments
